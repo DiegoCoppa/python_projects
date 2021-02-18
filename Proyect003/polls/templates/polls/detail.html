@@ -1,0 +1,38 @@
+<!-- {{ question }} -->
+
+<!--
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+-->
+
+<h1>{{ question.question_text }}</h1>
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<!-- #8
+The form tag needs two attributes set:
+
+    action: The URL that the form data is sent to on submit.
+            Generate it with url_for. It can be omitted if the same URL handles showing the form and processing the data.
+    method: Whether to submit the data as a query string (GET) or form data (POST).
+
+-->
+<form action="{% url 'polls:vote' question.id %}" method="post"> <!--#10 y termino post al polls:vote -->
+<!--hago post por que hay un submit-->
+
+{% csrf_token %}
+{% for choice in question.choice_set.all %} <!-- #9 tira todas las opciones que tengo de la pregunta-->
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"> <!-- att del radio -->
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br> <!-- nombre de cada radio -->
+{% endfor %}
+
+
+<input type="submit" value="Vote">
+</form>
+
+ 

@@ -1,0 +1,9 @@
+id,dcc_user,dcc_PermisosUser,pub_date,dcc_belong_Dept_id,dcc_nombre_full,dcc_pass_full,Email
+1,Diego,2,2021-01-03 21:58:38.953263,1,Diego,Coppa,dcoppa@inti.gob.ar
+2,Hernan,1,2021-01-03 22:01:03.006064,1,Hernan,Brenta,hbrenta@inti.gob.ar
+3,Matias,1,2021-01-03 22:01:09.788741,1,Matías,Robasso,robasso@inti.gob.ar
+4,Victor,1,2021-01-03 22:09:48.349550,2,Victorio,bla,victor@inti.gob.ar
+5,Mariano,1,2021-01-03 22:09:57.389240,2,Mariano,Liste,liste@inti.gob.ar
+6,Cacho,1,2021-01-03 22:10:08.042858,3,Andres,Torán,toran@inti.gob.ar
+7,Mariano R,1,2021-01-03 22:10:16.065772,3,Mariano,Real,real@inti.gob.ar
+8,stranger,0,2021-01-03 22:10:16.065772,4,You are,strange,not@sostrange

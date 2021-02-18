@@ -48,10 +48,10 @@ def get_user(request):
 def access(request,userListedString):
     try:
         if request.method == 'POST':
-           #print("post")
+                      
            #uploaded docs handled with forms + models
            form = DocumentFormXml(request.POST, request.FILES)
-           print(form.data['dcc_user'])
+           #form.dc
            
            #uploaded docs handled with forms + models
            #form = UploadFileForm(request.POST, request.FILES)
@@ -60,9 +60,16 @@ def access(request,userListedString):
                #print(request.FILES['file'])
                #handle_uploaded_file(request.FILES['file'],userListedString)
                
+               
+               xmldocument=form.save(commit = False) #verque es
+               xmldocument.dcc_user = request.dcc_user
+               xmldocument.save()
+               #data = {'is_valid': True, 'name': xmldocument.file.dcc_user, 'url': document.file.url}
+               #return JsonResponse(data)
+               
                #uploaded docs handled with forms + models
-               newdoc = XmlDocuments(xmldocument=request.FILES['xmldocument'])
-               newdoc.save()
+               #newdoc = XmlDocuments(xmldocument=request.FILES['xmldocument'])
+               #newdoc.save()
                #handle_uploaded_file(request.FILES['file'])
                
                #print(str(newdoc.objects.get()))

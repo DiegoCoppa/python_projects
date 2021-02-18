@@ -1,0 +1,14 @@
+<data>
+    <items name="Frank" test="1">
+        <item name="item1">item1abc</item>
+        <item name="item2">item2abc</item>
+    </items>
+    <items name="Ana" test="0">
+        <item name="item1">item1abc</item>
+        <item name="item2">item2abc</item>
+    </items>
+    <chotas>
+        <item name="chotas1">item1abc</item>
+        <item name="chotas2">item2abc</item>
+    </chotas>
+</data>

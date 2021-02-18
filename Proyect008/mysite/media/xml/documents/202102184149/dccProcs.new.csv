@@ -1,0 +1,8 @@
+id,dcc_proc,dcc_dept_id_belong,dcc_root_folder
+1,PEFV01,1,/media/diego/E4D5-3D00/proceduresFolder
+2,PEFV02,1,/media/diego/E4D5-3D00/proceduresFolder
+3,PEPC01,3,/media/diego/E4D5-3D00/proceduresFolder
+4,PEPC02,3,/media/diego/E4D5-3D00/proceduresFolder
+5,PET01,2,/media/diego/E4D5-3D00/proceduresFolder
+6,PET02,2,/media/diego/E4D5-3D00/proceduresFolder
+7,genérico,4,/media/diego/E4D5-3D00/proceduresFolder

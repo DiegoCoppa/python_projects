@@ -22,14 +22,14 @@ class DccUsers(models.Model):
 
 class DccProcs(models.Model):
     def __str__(self):
-        return self.dcc_proc
+        return self.dcc_proc_nombre
     dcc_proc_nombre = models.CharField(max_length=20,default='')
     dcc_dept_manager = models.ForeignKey(DccDepts, on_delete=models.CASCADE,default=1)
     dcc_root_folder = models.CharField(max_length=150,default='')
     
 class DccCerts(models.Model):
     def __str__(self):
-        return self.dcc_proc
+        return self.dcc_numero_certificado
     tipo = models.CharField(max_length=10,default='')
     dcc_numero_certificado = models.IntegerField(default=0)
     dcc_numero_parcial = models.IntegerField(default=0)
