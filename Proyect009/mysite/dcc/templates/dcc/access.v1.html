@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html>
+   <meta charset="utf-8">
+
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" src="{% static 'dcc/style.css' %}">
+   
+    <head>
+    <title>
+    INTI DCC 
+    </title>
+    </head>
+    <h1> DCC INTI - {{Centro}}</h1>
+    <h2> {{Name}} </h2>
+    <p> permisos grado: {{permisos}} </p>
+    <p> user: {{user}} </p>
+    <p> Depto: {{departamento}} </p>
+    <p> email: {{email}}@inti.gob.ar </p>
+    
+    <h3> Subir un archivo DCC (*.xml): </h3>
+    
+    <form enctype="multipart/form-data" action="/dcc/access/{{user}}/" method="POST"> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Upload xml</button>
+    </form> 
+
+   <h4> Tabla de documentos xml: </h4>    
+    <table class="table">
+        <thead>
+            <tr class="columns" data-columns="4">
+                <th> Autor</th>
+                <th> Descripción</th>
+                <th> Archivo guardado el día </th>
+                <th> Download </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in documents %}
+                <tr class="columns" data-columns="4">   
+                    <td> {{ doc.dcc_user }} </td>            
+                    <td> {{ doc.description }} </td>            
+                    <td> {{ doc.uploaded_at }} </td>
+                    <td>    
+                      <a href="{{ doc.document.path }}" class="btn btn-primary btn-sm" target="_blank">
+                        Download
+                      </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</html>
+
+
