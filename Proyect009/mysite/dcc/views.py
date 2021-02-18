@@ -62,7 +62,7 @@ def access(request,userListedString):
                
                
                xmldocument=form.save(commit = False) #verque es
-               xmldocument.dcc_user = request.dcc_user
+               xmldocument.dcc_user = DccUsers.objects.get(dcc_user=userListedString)
                xmldocument.save()
                #data = {'is_valid': True, 'name': xmldocument.file.dcc_user, 'url': document.file.url}
                #return JsonResponse(data)
