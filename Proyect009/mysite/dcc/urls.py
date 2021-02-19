@@ -23,7 +23,7 @@ urlpatterns = [
     # ex: /polls/dcc/5
     path('access/<str:userListedString>/', views.access, name='access'),
     # ex: /polls/dcc/5
-    path('access/<str:userListedString>/xmltohttp/', views.xmltohttp, name='xmltohttp')
+    #path('access/<str:userListedString>/xmltohttp/', views.xmltohttp, name='xmltohttp')
 ]
 
 if settings.DEBUG:
