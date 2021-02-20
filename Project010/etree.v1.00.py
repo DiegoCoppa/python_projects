@@ -7,7 +7,7 @@ Created on Fri Feb 19 09:37:44 2021
 from lxml import etree as ET
 
 
-tree = ET.parse('C:/43Python/01.RepositorioGithub/python_projects/Project010/calibracion.xml')
+tree = ET.parse('calibracion.xml')
 
 
 root = tree.getroot()

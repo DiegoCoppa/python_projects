@@ -10,8 +10,9 @@ from .forms import NameForm
 #from .forms import UploadFileForm
 from .forms import DocumentFormXml
 from .models import DccUsers, DccDepts, XmlDocuments
-from .functions import parsexml
+#from .functions import parsexml
 
+from lxml import etree as ET
 
 def get_user(request):
     try:
@@ -57,7 +58,7 @@ def access(request,userListedString):
 
             # creo una form para preapararme a subir el archivo form + model
             form = DocumentFormXml()
-            
+            #https://stackoverflow.com/questions/50591304/django-dynamic-filefield-upload-to
             #lista de documentos guardados y que solo el usuario creó
             documents = XmlDocuments.objects.filter(dcc_user=DccUsers.objects.get(dcc_user=userListedString).id)            
             
@@ -77,15 +78,20 @@ def access(request,userListedString):
         
         elif (request.method == 'POST'):
                       
-           #uploaded docs handled with forms + models
            form = DocumentFormXml(request.POST, request.FILES)
                     
            if  form.is_valid():
-                              
+               #print("sfsadf")
                xmldocument=form.save(commit = False) #verque es
                xmldocument.dcc_user = DccUsers.objects.get(dcc_user=userListedString)
                xmldocument.save()
                #xmltohttp(userListedString, xmldocument)
+               #id_xmldoc=XmlDocuments.objects.
+               #leí el archivo ahora leo el xml
+               print(form.cleaned_data['description'])
+               #print(form.cleandata['xmldocument'])
+               #parsexml(request.FILES['xmldocument'])
+               
                
                ###Info general###
                Name=str(DccUsers.objects.get(dcc_user=userListedString).dcc_nombre_full)
@@ -108,10 +114,13 @@ def access(request,userListedString):
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
         message = template.format(type(ex).__name__, ex.args)
         print (message)
-        
-        
-def xmltohttp(request):
-    return
 
-       
 
+def parsexml(f):
+    print(f)
+    tree = ET.parse(f)
+    root = tree.getroot()
+    print(root.tag)
+    print(root.attrib)
+    for child in root:
+        print({x.tag for x in root.findall(child.tag+"/*")})

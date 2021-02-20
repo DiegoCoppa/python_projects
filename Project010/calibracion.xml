@@ -5,14 +5,13 @@
         xmlns:dcc="https://ptb.de/dcc"
         xmlns:si="https://ptb.de/si"
         schemaVersion="2.3.0">
-
     <dcc:administrativeData>
 		<dcc:dccSoftware>
 			<dcc:software>
 				<dcc:name>
-					<dcc:content>Notepad++ (32-bit)</dcc:content>
+					<dcc:content>Django 3.0 </dcc:content>
 				</dcc:name>
-				<dcc:release>v7.7.1</dcc:release>
+				<dcc:release>v1.0.0</dcc:release>
 				<dcc:description id="dcc44-1">
 					<dcc:content lang="es">Extensión: XML Tools Plugin versión 2.3.2 unicode beta4 r908
 					</dcc:content>

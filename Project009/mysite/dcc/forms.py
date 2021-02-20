@@ -11,7 +11,7 @@ class NameForm(forms.Form):
 class DocumentFormXml(forms.ModelForm):
     class Meta:
         model = XmlDocuments
-        fields = ('description', 'xmldocument', 'dcc_user',)
+        fields = ('id', 'description', 'xmldocument', 'dcc_user',)
         #Acá no va uploaded_at por que no es un campo editable
    
     """   

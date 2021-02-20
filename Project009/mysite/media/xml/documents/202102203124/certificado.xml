@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dcc:digitalCalibrationCertificate
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://ptb.de/dcc https://ptb.de/dcc/v2.3.0/dcc.xsd"
+        xmlns:dcc="https://ptb.de/dcc"
+        xmlns:si="https://ptb.de/si"
+        schemaVersion="2.3.0">
+    <dcc:administrativeData>
+		<dcc:dccSoftware>
+			<dcc:software>
+				<dcc:name>
+					<dcc:content>Django 3.0 </dcc:content>
+				</dcc:name>
+				<dcc:release>v1.0.0</dcc:release>
+				<dcc:description id="dcc44-1">
+					<dcc:content lang="es">Extensión: XML Tools Plugin versión 2.3.2 unicode beta4 r908
+					</dcc:content>
+					<dcc:content lang="en">Extension: XML Tools Plugin version 2.3.2 unicode beta4 r908
+					</dcc:content>
+				</dcc:description>
+				<dcc:description id="dcc44-2">
+					<dcc:content lang="de">Instalación</dcc:content>
+					<dcc:content lang="en">Installation from the Software Cente</dcc:content>
+				</dcc:description>
+			</dcc:software>
+		</dcc:dccSoftware>
+		<dcc:CoreData> </dcc:CoreData>
+		<dcc:items> </dcc:items>
+		<dcc:calibrationLaboratory> </dcc:calibrationLaboratory>
+		<dcc:respPersons> </dcc:respPersons>
+		<dcc:customer> </dcc:customer>
+		<dcc:statements> </dcc:statements>
+	</dcc:administrativeData>
+	<dcc:measurementsResults>
+	</dcc:measurementsResults>
+	<dcc:comments>
+	</dcc:comments>
+	<dcc:document>
+	</dcc:document>
+</dcc:digitalCalibrationCertificate>

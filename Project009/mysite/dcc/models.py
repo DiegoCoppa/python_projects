@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+import os
 
 class DccDepts(models.Model):
     def __str__(self):
@@ -38,19 +39,21 @@ class DccCerts(models.Model):
     dcc_root_folder = models.CharField(max_length=150,default='')
     pub_date = models.DateTimeField('date published')
 
-"""
-def user_directory_path(instance, filename):
+
+def user_directory_path(instance,filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.dcc_user.id, filename)
-"""
+    base='xml/user_{0}/%Y%m%d%M%S/{1}'
+    file=base.format(str(instance.dcc_user.dcc_user),str(filename))
+    return (file)
+
 
 class XmlDocuments(models.Model):
     def __str__(self):
         return self.xmldocument
     description = models.CharField(max_length=255, blank=True)
-    xmldocument = models.FileField(upload_to='xml/documents/%Y%m%d%M%S')
+    #xmldocument = models.FileField(upload_to='xml/documents/%Y%m%d%M%S')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     dcc_user = models.ForeignKey(DccUsers, on_delete=models.CASCADE,default=1)
-    #xmldocument = models.FileField(upload_to=user_directory_path)
+    xmldocument = models.FileField(upload_to=user_directory_path)
 
     
