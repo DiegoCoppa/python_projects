@@ -10,9 +10,11 @@ from .forms import NameForm
 #from .forms import UploadFileForm
 from .forms import DocumentFormXml
 from .models import DccUsers, DccDepts, XmlDocuments
-#from .functions import parsexml
+from .functions import parsexml
 
-from lxml import etree as ET
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 def get_user(request):
     try:
@@ -81,16 +83,19 @@ def access(request,userListedString):
            form = DocumentFormXml(request.POST, request.FILES)
                     
            if  form.is_valid():
-               #print("sfsadf")
+               
                xmldocument=form.save(commit = False) #verque es
+
+               #le paso el usuario que generó el archivo
                xmldocument.dcc_user = DccUsers.objects.get(dcc_user=userListedString)
                xmldocument.save()
-               #xmltohttp(userListedString, xmldocument)
-               #id_xmldoc=XmlDocuments.objects.
-               #leí el archivo ahora leo el xml
-               print(form.cleaned_data['description'])
-               #print(form.cleandata['xmldocument'])
-               #parsexml(request.FILES['xmldocument'])
+               
+               #le paso la ubicación del archivo
+               base=str(BASE_DIR) +'/media/xml/user_{0}/{1}'
+               file=base.format(str(userListedString),str(request.FILES['xmldocument']))
+
+               
+               parsexml(file)
                
                
                ###Info general###
@@ -115,12 +120,3 @@ def access(request,userListedString):
         message = template.format(type(ex).__name__, ex.args)
         print (message)
 
-
-def parsexml(f):
-    print(f)
-    tree = ET.parse(f)
-    root = tree.getroot()
-    print(root.tag)
-    print(root.attrib)
-    for child in root:
-        print({x.tag for x in root.findall(child.tag+"/*")})

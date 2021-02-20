@@ -3,6 +3,7 @@ from django.utils import timezone
 import datetime
 import os
 
+
 class DccDepts(models.Model):
     def __str__(self):
         return self.dcc_dept
@@ -42,7 +43,7 @@ class DccCerts(models.Model):
 
 def user_directory_path(instance,filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    base='xml/user_{0}/%Y%m%d%M%S/{1}'
+    base='xml/user_{0}/{1}'
     file=base.format(str(instance.dcc_user.dcc_user),str(filename))
     return (file)
 
